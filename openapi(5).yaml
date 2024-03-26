@@ -1,0 +1,40 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Teste OPF
+  description: API que retorna uma especificação
+  contact:
+    name: dev
+    url: teste.com
+    email: teste@teste.com
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-ibm-name: teste-opf
+servers:
+  - url: /teste-opf
+paths:
+  '/oas/{api-name}':
+    get:
+      description: Retorna uma especificação
+      operationId: getOas
+      parameters:
+        - name: api-name
+          in: path
+          description: ID of pet to return
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: success
+          content:
+            application/json:
+              schema:
+                type: string
+      summary: Retorna especificação
+      tags:
+        - oas
+tags:
+  - name: oas
+    description: oas
